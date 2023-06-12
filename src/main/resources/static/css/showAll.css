@@ -1,0 +1,98 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: brown;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    overflow: auto;
+}
+
+.students-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.student-box {
+    margin: 8px;
+    border: 1px solid black;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+.student-name {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.student-name:hover {
+    text-decoration: underline;
+}
+
+.student-gpa {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.circle-button {
+    position: fixed;
+    bottom: calc(10%);
+    right: calc(7%);
+    width: 80px;
+    height: 80px;
+    background-color: brown;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 80px;
+    font-size: 50px;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.circle-button:hover {
+    background-color: rgb(139, 36, 36);
+}
+
+.delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    background-color: #d10000;
+    border: none;
+    border-radius: 0;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.delete-button:hover{
+    background-color: #930101;
+}

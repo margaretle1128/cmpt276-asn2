@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/showAll.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/edit.js" defer></script>
+    <script src="/js/delete.js" defer></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="heading"><h1>STUDENT TRACKER</h1></div>
+        <div class="students-container">
+            <div th:each="student: ${st}">
+                <div class="student-box" th:style="'width:' + (50 + ${student.weight}) + 'px; height:' + (20 + ${student.height}) + 'px;'">
+                    <span class="student-name" th:text="${student.name}" th:style="'color: ' + ${student.hairColor} + ' !important;'" th:onclick="editStudentForm([[${student.uid}]])"></span><br>
+                    <span th:style="'color: black;'" th:text="${student.gpa}"></span>
+                    <button class="delete-button" th:onclick="deleteStudent([[${student.uid}]])">&#10006;</button>
+                </div>
+            </div>
+        </div>
+        <a href="/add.html" class="circle-button">
+            +
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="css/edit.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/js/update.js"></script>
+</head>
+<body>
+    <div class = "container">
+        <form action="/students/update" method="post">
+            <div class="arrow-div">
+                <a href="/students/view" class="link">
+                  <p><i class="arrow left"></i> Main Page</p>
+                </a>
+            </div>	
+            <h1>Edit Student</h1>
+            <input type="hidden" name="uid" th:value="${student.uid}" /> 
+            <fieldset>
+                <div class="form-left">Name</div>
+                <div class="form-right"><input type="text" id="name" name="name" th:value="${student.name}" required/></div>
+            </fieldset>
+            <fieldset>
+                <div class="form-left">Weight (kg)</div>
+                <div class="form-right"><input type="number" id="weight" name="weight" th:value="${student.weight}" step="0.01" required/></div>
+            </fieldset>
+            <fieldset>
+                <div class="form-left">Height (cm)</div>
+                <div class="form-right"><input type="number" id="height" name="height" th:value="${student.height}" step="0.01" required/></div>
+            </fieldset>
+            <fieldset>
+                <div class="form-left">GPA</div>
+                <div class="form-right"><input type="text" id="gpa" name="gpa" th:value="${student.gpa}" required/></div>
+            </fieldset>
+            <fieldset>
+                <div class="form-left">Hair Color</div>
+                <div class="form-right"><input type="color" id="hairColor" name="hairColor" th:value="${student.hairColor}" required/></div>
+            </fieldset>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>
