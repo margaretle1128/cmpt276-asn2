@@ -20,6 +20,7 @@ public class StudentsController {
     @Autowired
     private StudentRepository studentRepo;
 
+    // get all students
     @GetMapping("/students/view")
     public String getAllStudents(Model model){
         System.out.println("Getting all student");
@@ -29,6 +30,7 @@ public class StudentsController {
         return "students/showAll";
     }
 
+    // add student
     @PostMapping("/students/add")
     public String addStudent(@RequestParam Map<String, String> newstudent, HttpServletResponse response){
         System.out.println("ADD student");
@@ -42,6 +44,7 @@ public class StudentsController {
         return "redirect:/students/view";
     }
 
+    // get info
     @GetMapping("/edit.html")
     public String getEditStudentPage(@RequestParam("uid") int uid, Model model) {
         Optional<Student> studentOptional = studentRepo.findById(uid);
@@ -50,6 +53,7 @@ public class StudentsController {
         return "students/edit";
     }
 
+    // edit info
     @PostMapping("/students/update")
     public String updateStudent(@RequestParam("uid") int uid, @RequestParam Map<String, String> updatedStudent, HttpServletResponse response) {
         Optional<Student> studentOptional = studentRepo.findById(uid);
@@ -64,6 +68,7 @@ public class StudentsController {
         return "redirect:/students/view";
     }
 
+    // delete student
     @PostMapping("/students/delete")
     public String deleteStudent(@RequestParam("uid") int uid, HttpServletResponse response) {
         Optional<Student> studentOptional = studentRepo.findById(uid);

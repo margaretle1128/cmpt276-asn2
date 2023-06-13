@@ -2,6 +2,7 @@ $(document).ready(function() {
     $('form').submit(function(e) {
         e.preventDefault();
 
+        // check valid gpa
         var gpa = $('#gpa').val();
         if (!isValidGPA(gpa)) {
             $('#gpa')[0].setCustomValidity("Invalid GPA. Please enter a valid GPA between 0.00 and 4.33.");
@@ -10,10 +11,12 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
+                // send to endpoint /students/update
                 url: '/students/update',
                 data: $(this).serialize(), 
                 success: function() {
                     alert("Update Success!");
+                    // redirect to /students/view
                     window.location.href = "/students/view";
                 }
             });
